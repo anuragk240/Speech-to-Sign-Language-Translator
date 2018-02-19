@@ -8,7 +8,7 @@ from google.cloud import speech
 from google.cloud.speech import enums
 from google.cloud.speech import types
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/Varun/Desktop/Sign Language Translator-87ce12c513f9.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="D:\\anurag\Audio to sign language translator\Sign Language Translator-c72c78bbb40e.json"
 print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
 
 client = speech.SpeechClient()

@@ -100,9 +100,8 @@ def listen_for_speech(threshold=THRESHOLD, num_phrases=1):
             print("Finished")
             # The limit was reached, finish capture and deliver.
             filename = save_speech(list(prev_audio) + audio2send, p)
-            return "test"
             # Send file to Google and get response
-            r = stt_google_wav(filename)
+            # r = stt_google_wav(filename)
             if num_phrases == -1:
                 print("Response", r)
             else:
