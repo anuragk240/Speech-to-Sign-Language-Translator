@@ -18,7 +18,7 @@ def speech_to_text():
     from recordSpeech import PATH_TO_AUDIO_FILE
 
     # location to the json key file. Replace with your location
-    json_key_file = "D:\\anurag\Audio to sign language translator\Sign Language Translator-c72c78bbb40e.json"
+    json_key_file = "C:/Users/Varun/Desktop/Sign Language Translator-87ce12c513f9.json"
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = json_key_file
     print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
 
