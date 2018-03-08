@@ -13,8 +13,8 @@ print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
 # Instantiates a client
 client = language.LanguageServiceClient()
 
-# The text to analyze
-text = 'Hello, world!'
+# The text to analyze, only text is given as input to API
+text = 'Text only'
 document = types.Document(
     content=text,
     type=enums.Document.Type.PLAIN_TEXT)
