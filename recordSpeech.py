@@ -31,7 +31,6 @@ def callback(in_data, frame_count, time_info, status):
 def record_audio():
     audio = pyaudio.PyAudio()
 
-
     '''    
     #start recording without callback
     stream = audio.open(format=FORMAT,

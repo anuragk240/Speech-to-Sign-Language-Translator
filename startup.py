@@ -1,51 +1,107 @@
-import bpy
 import bge
 import recordSpeech
 import threading
 import Speechtotext
+import playAnimations
+
+start_animation = False
+action_num = 0
+actions = []
+text_obj = None
+gloss = None
+
 
 # background thread for recording and other stuff
 def run():
     print("Starting worker")
     # start recording
     recordSpeech.record_audio()
+    global text_obj
+    text_obj.text = "Converting Speech to Text"
     # convert speech to text
-    Speechtotext.speech_to_text()
+    text = "Speech: "
+    text += Speechtotext.speech_to_text()
+    con_obj = bge.logic.getCurrentScene().objects['converted_text']
+    con_obj.visible = True
+    con_obj.text = text
+    con_obj.resolution = 8.0
+    global text_obj
+    text_obj.text = "Animating"
+    # TODO:convert text to gloss form
+
+    # play animations sequentially
+    gloss_array = ['L', 'A', 'J', 'Z', 'Q', 'R', 'T']
+
+    global actions, start_animation, action_num, thread
+    actions = playAnimations.get_actions(gloss_array)
+    start_animation = True
+    action_num = 0
     print("Finished worker")
+    thread = None
 
 
-thread = threading.Thread(target=run)
+thread = None
 
 
 def main():
     # main logic for updating blender ui and other things
     # print("recording ", thread.isAlive())
+
+    if start_animation:
+        global action_num, text_obj
+        text_obj.text = "Animating"
+        action_num = playAnimations.play_animation(actions, action_num)
+        pass
     pass
 
 
 # call this when r is pressed
 # this starts a new thread for recording
 def start_thread():
-    # initialise
+    global text_obj
+    text_obj.text = "Stop Recording (S)"
     sens = bge.logic.getCurrentController().sensors['record']
     if sens.positive:
-        print("path")
-        path = bpy.path.abspath("//")
-        print(path)
-        recordSpeech.set_path_to_audio_file(path)
-
         print("R pressed")
+        if thread is None:
+            global thread
+            thread = threading.Thread(target=run)
+
         if not thread.isAlive():
+            print("initialised thread")
+
+            print("path")
+            path = bge.logic.expandPath("//")
+            print(path)
+            recordSpeech.set_path_to_audio_file(path)
+
             recordSpeech.record_on = True
             thread.start()
+            global is_recording
             print("thread started")
 
 
 def stop_recording():
     sens = bge.logic.getCurrentController().sensors['stop_record']
-    if sens.positive and thread.isAlive():
-        print("terminating recording")
-        recordSpeech.record_on = False
+    if sens.positive:
+        if thread is not None and thread.isAlive():
+            print("terminating recording")
+            global text_obj
+            text_obj.text = "Playing audio"
+            recordSpeech.record_on = False
+        else:
+            print("thread none or not running")
+
+
+def init():
+    # initialise
+    global text_obj, gloss
+    text_obj = bge.logic.getCurrentScene().objects['Text']
+    text_obj.text = "Record Speech (R)"
+    text_obj.resolution = 8.0
+    gloss = bge.logic.getCurrentScene().objects['gloss']
+    gloss.resolution = 8.0
+    print("init")
 
 
 # for testing
@@ -54,4 +110,4 @@ if __name__ == "__main__":
     # sens = bge.logic.getCurrentController().sensors['startup']
     # if sens.positive:
     print("test")
-
+    pass

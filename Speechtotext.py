@@ -6,10 +6,12 @@ from google.cloud import speech
 from google.cloud.speech import enums
 from google.cloud.speech import types
 
+
 # not necessary as for now
 def encode_audio(audio):
     audio_content = audio.read()
     return base64.b64encode(audio_content)
+
 
 def speech_to_text():
     from recordSpeech import RATE
@@ -18,7 +20,7 @@ def speech_to_text():
     from recordSpeech import PATH_TO_AUDIO_FILE
 
     # location to the json key file. Replace with your location
-    json_key_file = "C:/Users/Varun/Desktop/Sign Language Translator-87ce12c513f9.json"
+    json_key_file = "D:\\anurag\Audio to sign language translator\Sign Language Translator-c72c78bbb40e.json"
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = json_key_file
     print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
 
@@ -65,10 +67,15 @@ def speech_to_text():
     response = client.recognize(config, audio)
     # Each result is for a consecutive portion of the audio. Iterate through
     # them to get the transcripts for the entire audio file.
+    ans = ""
     for result in response.results:
         # The first alternative is the most likely one for this portion.
+        ans = result.alternatives[0].transcript
         print('Transcript: {}'.format(result.alternatives[0].transcript))
     print("Finished")
+
+    return ans
+
 
 # executes this code if script is executed directly in cmd or pycharm
 if __name__ == "__main__":
