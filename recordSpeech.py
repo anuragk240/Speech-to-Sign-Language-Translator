@@ -29,6 +29,8 @@ def callback(in_data, frame_count, time_info, status):
 
 
 def record_audio():
+    global frames
+    frames = []
     audio = pyaudio.PyAudio()
 
     '''    

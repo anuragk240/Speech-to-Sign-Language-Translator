@@ -14,23 +14,28 @@ gloss = None
 # background thread for recording and other stuff
 def run():
     print("Starting worker")
+
     # start recording
     recordSpeech.record_audio()
     global text_obj
     text_obj.text = "Converting Speech to Text"
+
     # convert speech to text
-    text = "Speech: "
-    text += Speechtotext.speech_to_text()
+    text = "happy new year"
+    text = Speechtotext.speech_to_text()
     con_obj = bge.logic.getCurrentScene().objects['converted_text']
     con_obj.visible = True
-    con_obj.text = text
+    con_obj.text = "Speech: " + text
     con_obj.resolution = 8.0
-    global text_obj
-    text_obj.text = "Animating"
+
     # TODO:convert text to gloss form
+    # dummy code splits text into words and returns it as gloss array
+    gloss_array = text.lower().split()
 
     # play animations sequentially
-    gloss_array = ['L', 'A', 'J', 'Z', 'Q', 'R', 'T']
+    # gloss_array = ['happy', 'new', 'year']
+    global text_obj
+    text_obj.text = "Animating"
 
     global actions, start_animation, action_num, thread
     actions = playAnimations.get_actions(gloss_array)
@@ -102,6 +107,9 @@ def init():
     gloss = bge.logic.getCurrentScene().objects['gloss']
     gloss.resolution = 8.0
     print("init")
+
+
+def exit():
 
 
 # for testing
