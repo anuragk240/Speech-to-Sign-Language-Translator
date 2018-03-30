@@ -6,12 +6,10 @@ from google.cloud import speech
 from google.cloud.speech import enums
 from google.cloud.speech import types
 
-
 # not necessary as for now
 def encode_audio(audio):
     audio_content = audio.read()
     return base64.b64encode(audio_content)
-
 
 def speech_to_text():
     from recordSpeech import RATE
@@ -75,7 +73,6 @@ def speech_to_text():
     print("Finished")
 
     return ans
-
 
 # executes this code if script is executed directly in cmd or pycharm
 if __name__ == "__main__":

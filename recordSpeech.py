@@ -99,4 +99,8 @@ def set_path_to_audio_file(path):
 
 # executes this code if script is executed directly in cmd or pycharm
 if __name__ == "__main__":
+    record_on = True
+    record_audio()
+    time.sleep(5)
+    record_on = False
     pass

@@ -2,6 +2,7 @@ import bge
 import recordSpeech
 import threading
 import Speechtotext
+import NLP
 import playAnimations
 
 start_animation = False
@@ -9,7 +10,6 @@ action_num = 0
 actions = []
 text_obj = None
 gloss = None
-
 
 # background thread for recording and other stuff
 def run():
@@ -46,7 +46,6 @@ def run():
 
 
 thread = None
-
 
 def main():
     # main logic for updating blender ui and other things
@@ -108,9 +107,8 @@ def init():
     gloss.resolution = 8.0
     print("init")
 
-
 def exit():
-
+    pass
 
 # for testing
 if __name__ == "__main__":
