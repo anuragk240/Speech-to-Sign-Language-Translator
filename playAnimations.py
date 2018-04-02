@@ -15,12 +15,29 @@ def play_animation(actions, i):
         return i
     elif i == len(actions):
         startup.start_animation = False
-        startup.text_obj.text = "Record Spech (R)"
+        startup.text_obj.text = "Record Speech (R)"
+        startup.con_obj.text = ""
+        startup.con_obj.visible = False
+        startup.gloss.text = ""
+        startup.gloss.visible = False
+
     else:
         play_action(actions[i])
+        if not actions[i][1:] == [0, 0]:
+            update_gloss(i, actions[i][0])
         i = i + 1
 
     return i
+
+
+def update_gloss(i, action):
+    if not action == "RestPose":
+        if action[0].isupper():
+            # action is of an alphabet
+            startup.gloss.text += action[-1] + " "
+        else:
+            # action is of a word
+            startup.gloss.text += action.upper() + " "
 
 
 def get_actions(gloss_array):
@@ -62,7 +79,7 @@ def play_action(data):
     # etc
     layerWeight = 0.0
     ipoFlags = 0
-    speed = 1
+    speed = 0.8
     print("action played " + action)
     main_arm.playAction(action, start, end, layer, priority, blendin, mode, layerWeight, ipoFlags, speed)
 
