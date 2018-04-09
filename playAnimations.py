@@ -34,7 +34,7 @@ def update_gloss(i, action):
     if not action == "RestPose":
         if action[0].isupper():
             # action is of an alphabet
-            startup.gloss.text += action[-1] + " "
+            startup.gloss.text += action[-1]
         else:
             # action is of a word
             startup.gloss.text += action.upper() + " "

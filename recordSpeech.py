@@ -78,6 +78,7 @@ def record_audio():
     waveFile.writeframes(b''.join(frames))
     waveFile.close()
 
+    """
     play = pyaudio.PyAudio()
     stream_play = play.open(format=FORMAT,
                             channels=CHANNELS,
@@ -90,6 +91,7 @@ def record_audio():
     stream_play.stop_stream()
     stream_play.close()
     play.terminate()
+    """
 
 
 def set_path_to_audio_file(path):

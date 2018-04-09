@@ -93,8 +93,8 @@ def stop_recording():
     if sens.positive:
         if thread is not None and thread.isAlive() and recordSpeech.record_on:
             print("terminating recording")
-            global text_obj
-            text_obj.text = "Playing audio"
+            # global text_obj
+            # text_obj.text = "Playing audio"
             recordSpeech.record_on = False
         else:
             print("thread none or not running")
@@ -118,6 +118,11 @@ def init():
     json_key_file = "D:\\anurag\Audio to sign language translator\Sign Language Translator-c72c78bbb40e.json"
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = json_key_file
     print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
+
+    # get clients for nlp and speech
+    Speechtotext.get_client()
+    NLP.get_client()
+
     print("init")
 
 

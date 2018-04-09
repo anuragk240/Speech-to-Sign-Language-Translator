@@ -9,9 +9,14 @@ from google.cloud.language import types
 from NLP_Constants import *
 
 
+def get_client():
+    return language.LanguageServiceClient()
+
+
 def syntax_text(text):
     """Detects syntax in the text."""
-    client = language.LanguageServiceClient()
+
+    client = get_client()
 
     if isinstance(text, six.binary_type):
         text = text.decode('utf-8')

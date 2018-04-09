@@ -6,10 +6,16 @@ from google.cloud import speech
 from google.cloud.speech import enums
 from google.cloud.speech import types
 
+
 # not necessary as for now
 def encode_audio(audio):
     audio_content = audio.read()
     return base64.b64encode(audio_content)
+
+
+def get_client():
+    return speech.SpeechClient()
+
 
 def speech_to_text():
     from recordSpeech import RATE
@@ -17,12 +23,7 @@ def speech_to_text():
     from recordSpeech import FLAC_OUTPUT_FILENAME
     from recordSpeech import PATH_TO_AUDIO_FILE
 
-    # location to the json key file. Replace with your location
-    json_key_file = "D:\\anurag\Audio to sign language translator\Sign Language Translator-c72c78bbb40e.json"
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = json_key_file
-    print(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
-
-    client = speech.SpeechClient()
+    client = get_client()
 
     # if this script is run from blender, specify the path of audio file that is to be converted into flac
     # PATH_TO_AUDIO_FILE points to current directory. Audio file is saved in that path.
@@ -73,6 +74,7 @@ def speech_to_text():
     print("Finished")
 
     return ans
+
 
 # executes this code if script is executed directly in cmd or pycharm
 if __name__ == "__main__":
