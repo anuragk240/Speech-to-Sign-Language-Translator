@@ -1,6 +1,15 @@
 # Speech-to-Sign-Language-Translator
 
 <b>Instructions</b>
+1. Install blender 2.79.
+2. Set Path variable for python distribution present inside blender (\Your installation directory\Blender Foundation\Blender\2.79\python\bin). Install pip for this python distribution from <a href="https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation#pip-install"> here </a> and set path variable also.
+3. Install and setup ffmpeg from <a href="https://github.com/adaptlearning/adapt_authoring/wiki/Installing-FFmpeg">here</a>.
+4. Install python dependecies using pip: pyaudio, google-cloud-speech, google-cloud-language etc.
+5. Congifure API Key for google cloud services. You might have to create a new project and enable google speech and language api in googlecloud console, then create and download a json credential file and add the path to json file to GOOGLE_APPLICATION_CREDENTIALS.
+6. Run .blend file inside model folder.
+
+
+#### Additional
 1. Use python 3.5.3 so that code is compatible with blender 2.79.
 2. ffmpeg required for converting wav to flac. Install ffmpeg first and add it to environment variables else errors will occur.
 3. .raw & .flac are the only audio file accepted for text transalation by the API.
