@@ -12,6 +12,6 @@
 
 #### Additional
 1. Use python 3.5.3 so that code is compatible with blender 2.79.
-2. ffmpeg required for converting wav to flac. Install ffmpeg first and add it to environment variables else errors will occur.
+2. ~~fmpeg required for converting wav to flac. Install ffmpeg first and add it to environment variables else errors will occur.~~
 3. .raw & .flac are the only audio file accepted for text transalation by the API.
-4. Works correctly for first time in game engine after that errors occur, don't know why.
+4. Works correctly for first time in game engine after that errors occur because python cahces imported modules. Hence we need to restart blender everytime to delete cached imports.
