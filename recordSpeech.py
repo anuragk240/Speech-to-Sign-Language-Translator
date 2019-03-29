@@ -33,6 +33,7 @@ def record_audio():
     frames = []
     audio = pyaudio.PyAudio()
 
+
     '''    
     #start recording without callback
     stream = audio.open(format=FORMAT,
@@ -57,10 +58,10 @@ def record_audio():
 
     print("Please say something......")
     stream.start_stream()
-
+    
     while stream.is_active():
         time.sleep(0.1)
-
+    
     print("Thank you for Input")
     # stop Recording
     stream.stop_stream()

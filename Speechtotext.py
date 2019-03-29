@@ -6,12 +6,10 @@ from google.cloud import speech
 from google.cloud.speech import enums
 from google.cloud.speech import types
 
-
 # not necessary as for now
 def encode_audio(audio):
     audio_content = audio.read()
     return base64.b64encode(audio_content)
-
 
 def get_client():
     return speech.SpeechClient()
@@ -43,13 +41,12 @@ def speech_to_text():
     # convert wav to flac. Be sure that ffmpeg is installed and added to environmental
     # variable path. Restart pycharm after installing.If not working than execute script from cmd.
     try:
+        import traceback
         from pydub import AudioSegment
         song = AudioSegment.from_wav(input_file)
         song.export(output_file, format="flac")
     except:
-        print("Conversion Failed.")
-        print("Make sure ffmpeg is installed and added to environment variable.")
-        print("And try running script from cmd instead of pycharm.")
+        traceback.print_exc()
         return
 
     # read audio file
@@ -64,17 +61,17 @@ def speech_to_text():
         language_code='en-US')
 
     response = client.recognize(config, audio)
+
     # Each result is for a consecutive portion of the audio. Iterate through
     # them to get the transcripts for the entire audio file.
-    ans = ""
+    ans=""
     for result in response.results:
         # The first alternative is the most likely one for this portion.
-        ans = result.alternatives[0].transcript
+        ans=result.alternatives[0].transcript
         print('Transcript: {}'.format(result.alternatives[0].transcript))
     print("Finished")
-
+    
     return ans
-
 
 # executes this code if script is executed directly in cmd or pycharm
 if __name__ == "__main__":
