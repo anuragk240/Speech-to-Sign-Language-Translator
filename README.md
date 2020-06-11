@@ -5,7 +5,7 @@
 2. Set Path variable for python distribution present inside blender (\Your installation directory\Blender Foundation\Blender\2.79\python\bin). Pip will be present with python. If not, then install from <a href="https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation#pip-install"> here </a> and set path variable.
 3. Install and setup ffmpeg from <a href="http://ffmpeg.zeranoe.com/builds/">here</a>. Required while importing pydub as well.
 4. Install python dependecies using pip: pydub, pyaudio, google-cloud-speech, google-cloud-language etc.
-5. Congifure API Key for google cloud services. You might have to create a new project and enable google speech and language api in googlecloud console, then create and download a json credential file and set "json_key_file" in startup.py to the path to json credential file. Detailed instructions <a href="https://cloud.google.com/speech-to-text/docs/quickstart-client-libraries#client-libraries-install-python"> here.</a>
+5. Congifure API Key for google cloud services. You might have to create a new project and enable google speech and language api in googlecloud console, then create and download a json credential file and place the file in model directory. Detailed instructions <a href="https://cloud.google.com/speech-to-text/docs/quickstart-client-libraries#client-libraries-install-python"> here.</a>
 6. Run animationData.py as script inside blender. It generates some meta-data used in animating sign glosses.
 7. Run .blend file inside model folder.
 
@@ -33,7 +33,7 @@
 
 8. Login to google cloud console. Create a new project there. Goto "API and Services" and click on "enable API and services". Search for "speech to text" and "natural language" APIs. Enable them and also enable billing for them as well. If it asks for payment information provide a VISA or MasterCard details. These APIs are free but you will need to enable billing to access them.
 9. Goto "Credentials" tabs under "API and services". Click on manage service account and create a new service account. Add details. Select "owner" under roles.
-10. Again goto "Credentials" tabs under "API and services". Click on your newly created service account. On the next page click on "Add key" -> "Create New Key" -> "Json" -> "Create". A json file will be downloaded. ~~Put this file in the model directory.~~ Set the path of json_key_file in startup.py to its location. Uncomment the code if commented.
-11. Open project .blend file. Click on "Default" and select "scripting". The code will be visible now. Select AnimationData.py. Right Click on it and select run. AnimationData.txt will be generated in the model directory.
+10. Again goto "Credentials" tabs under "API and services". Click on your newly created service account. On the next page click on "Add key" -> "Create New Key" -> "Json" -> "Create". A json file will be downloaded. **Put this file in the model directory.** Uncomment the code if commented.
+11. Open project .blend file. Click on "Default" and select "scripting". The code will be visible now. Select AnimationData.py. Right Click on it and select run. **AnimationData.txt will be generated in the model directory.**
 12. Again select "Default" view and press key P. You will enter the game engine. Make sure to open the Windows console before pressing P for debugging.
 13. Press R to record and S to stop. After recording APIs will be called. If any error occurs, see the error dump in the console.
