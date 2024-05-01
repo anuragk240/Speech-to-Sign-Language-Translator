@@ -3,7 +3,7 @@
 <b>Instructions</b>
 1. Install blender 2.79.
 2. Set Path variable for python distribution present inside blender (\Your installation directory\Blender Foundation\Blender\2.79\python\bin). Pip will be present with python. If not, then install from <a href="https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation#pip-install"> here </a> and set path variable.
-3. Install and setup ffmpeg from <a href="http://ffmpeg.zeranoe.com/builds/">here</a>. Required while importing pydub as well.
+3. Install and setup ffmpeg. Required while importing pydub as well.
 4. Install python dependecies using pip: pydub, pyaudio, google-cloud-speech, google-cloud-language etc.
 5. Congifure API Key for google cloud services. You might have to create a new project and enable google speech and language api in googlecloud console, then create and download a json credential file and place the file in model directory. Detailed instructions <a href="https://cloud.google.com/speech-to-text/docs/quickstart-client-libraries#client-libraries-install-python"> here.</a>
 6. Run animationData.py as script inside blender. It generates some meta-data used in animating sign glosses.
@@ -40,13 +40,20 @@
 
 
 #### Screen Shots
-<p> Recording Speech: </p>
+Recording Speech: 
+
 ![image](https://github.com/anuragk240/Speech-to-Sign-Language-Translator/assets/17070972/1758bfd7-fe1a-4f45-bf4c-6ae6745ef2aa)
-<p> Converting Speech to text: </p>
+
+Converting Speech to text:
+
 ![image](https://github.com/anuragk240/Speech-to-Sign-Language-Translator/assets/17070972/7cd53eea-6f09-4bc6-bcd0-b11891afa600)
-<p> Analyzing input text: </p>
+
+Analyzing input text:
+
 ![image](https://github.com/anuragk240/Speech-to-Sign-Language-Translator/assets/17070972/2e862044-8179-4618-8a58-7f578f2e81f9)
-<p> Animation of Model: </p>
+
+Animation of Model:
+
 ![image](https://github.com/anuragk240/Speech-to-Sign-Language-Translator/assets/17070972/82834fb9-036f-42b6-a259-8d59b1eca501)
 
 
