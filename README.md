@@ -40,13 +40,13 @@
 
 
 #### Screen Shots
-Recording Speech:
+<p> Recording Speech: </p>
 ![image](https://github.com/anuragk240/Speech-to-Sign-Language-Translator/assets/17070972/1758bfd7-fe1a-4f45-bf4c-6ae6745ef2aa)
-Converting Speech to text:
+<p> Converting Speech to text: </p>
 ![image](https://github.com/anuragk240/Speech-to-Sign-Language-Translator/assets/17070972/7cd53eea-6f09-4bc6-bcd0-b11891afa600)
-Analyzing input text: 
+<p> Analyzing input text: </p>
 ![image](https://github.com/anuragk240/Speech-to-Sign-Language-Translator/assets/17070972/2e862044-8179-4618-8a58-7f578f2e81f9)
-Animation of Model: 
+<p> Animation of Model: </p>
 ![image](https://github.com/anuragk240/Speech-to-Sign-Language-Translator/assets/17070972/82834fb9-036f-42b6-a259-8d59b1eca501)
 
 
