@@ -37,3 +37,18 @@
 11. Open project .blend file. Click on "Default" and select "scripting". The code will be visible now. Select AnimationData.py. Right Click on it and select run. **AnimationData.txt will be generated in the model directory.**
 12. Again select "Default" view and press key P. You will enter the game engine. Make sure to open the Windows console before pressing P for debugging.
 13. Press R to record and S to stop. After recording APIs will be called. If any error occurs, see the error dump in the console.
+
+
+#### Screen Shots
+Recording Speech:
+![image](https://github.com/anuragk240/Speech-to-Sign-Language-Translator/assets/17070972/1758bfd7-fe1a-4f45-bf4c-6ae6745ef2aa)
+Converting Speech to text:
+![image](https://github.com/anuragk240/Speech-to-Sign-Language-Translator/assets/17070972/7cd53eea-6f09-4bc6-bcd0-b11891afa600)
+Analyzing input text: 
+![image](https://github.com/anuragk240/Speech-to-Sign-Language-Translator/assets/17070972/2e862044-8179-4618-8a58-7f578f2e81f9)
+Animation of Model: 
+![image](https://github.com/anuragk240/Speech-to-Sign-Language-Translator/assets/17070972/82834fb9-036f-42b6-a259-8d59b1eca501)
+
+
+
+
